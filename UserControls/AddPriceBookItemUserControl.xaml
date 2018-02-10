@@ -1,0 +1,129 @@
+﻿<UserControl
+    x:Class="Custom_Air_Files.UserControls.AddPriceBookItemUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Custom_Air_Files.UserControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <Grid Height="auto" Width="auto">
+
+        <StackPanel>
+            <StackPanel Style="{StaticResource AddUserControlBodyStackPanelStyle}">
+            <TextBlock Style="{StaticResource AddUserControlHeaderStyle}"
+                       Text="Add Pricebook Item"/>
+
+            <StackPanel Orientation="Horizontal">
+
+                <TextBlock Text="Name" Style="{StaticResource AddUserControlLableTextBlockStyle}"/>
+
+                <TextBox Name="NameTextBox" 
+                             VerticalAlignment="Center"
+                             MaxLength="50"
+                             Width="250"
+                         KeyUp="NameTextBox_KeyUp"/>
+
+
+
+            </StackPanel>
+            <RelativePanel>
+                
+                <TextBlock Name="DTB"
+                           RelativePanel.AlignLeftWithPanel="True"
+                           RelativePanel.AlignBottomWithPanel="True"
+                           Text="Description"
+                           Style="{StaticResource AddUserControlLableTextBlockStyle}"/>
+
+                <TextBlock Name="DTB2"
+                           RelativePanel.RightOf="DTB"
+                           RelativePanel.AlignBottomWithPanel="True"
+                           Text="as seen on invoice"
+                           Foreground="White"
+                           Margin="0,10,10,1"
+                           FontSize="10"
+                           FontWeight="Thin"/>
+
+                <TextBlock Name="CTB"
+                           RelativePanel.AlignRightWithPanel="True"
+                           RelativePanel.AlignBottomWithPanel="True"
+                           Foreground="White"
+                           Margin="0,10,10,1"
+                           FontSize="10"
+                           FontWeight="Thin"
+                           Text="200"/>
+
+                <TextBlock Name="CTB2"
+                           RelativePanel.LeftOf="CTB"
+                           RelativePanel.AlignBottomWithPanel="True"
+                           Foreground="White"
+                           Margin="0,10,10,1"
+                           FontSize="10"
+                           FontWeight="Thin"
+                           Text="Characters remaining - "/>
+
+
+            </RelativePanel>
+
+
+
+            <TextBox Name="DescriptionTextBox" 
+                     Margin="10,0,10,10"
+                     MaxLength="200"
+                     Width="400"
+                     Height="130"
+                     HorizontalAlignment="Left"
+                     TextWrapping="Wrap"
+                     KeyUp="DescriptionTextBox_KeyUp"
+                     TextChanged="DescriptionTextBox_TextChanged"/>
+            
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+
+                <TextBlock Text="Amount" Style="{StaticResource AddUserControlLableTextBlockStyle}"/>
+
+                <TextBlock Text="$"
+                               Foreground="White"
+                               Margin="0,0,0,3"
+                               VerticalAlignment="Center"
+                           FontSize="20"/>
+
+                <TextBox Name="AmountTextBox" 
+                         MaxLength="6"
+                         KeyUp="AmountTextBox_KeyUp"
+                         InputScope="Number"
+                         TextChanging="AmountTextBox_TextChanging"
+                         KeyDown="AmountTextBox_KeyDown"/>
+
+            </StackPanel>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Background="White">
+
+                <Button Name="AddCircleButton"
+                        Style="{StaticResource CircleButtonTemplateStyle}"
+                        Click="AddCircleButton_Click">
+                    <Grid>
+                        <Ellipse Style="{StaticResource CBAddEllipseStyle}"/>
+                        <TextBlock Style="{StaticResource CBAddTextBlockStyle}"/>
+                    </Grid>
+                </Button>
+
+                <Button Name="CancelCircleButton"
+                        Style="{StaticResource CircleButtonTemplateStyle}"
+                        Click="CancelCircleButton_Click">
+                    <Grid>
+                        <Ellipse Style="{StaticResource CBDeleteEllipseStyle}"/>
+                        <TextBlock Style="{StaticResource CBDeleteTextBlockStyle}"/>
+                    </Grid>
+                </Button>
+                
+            </StackPanel>
+            
+
+
+        </StackPanel>
+
+    </Grid>
+</UserControl>

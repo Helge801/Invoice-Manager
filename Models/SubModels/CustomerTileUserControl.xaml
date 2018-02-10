@@ -1,0 +1,64 @@
+﻿<UserControl
+    x:Class="Custom_Air_Files.Models.SubModels.CustomerTileUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Custom_Air_Files.Models.SubModels"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <Grid Name="MainGrid" Margin="10" Background="White" BorderThickness="2" BorderBrush="Black">
+
+        <!--<VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="CompactVisualState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="CustomerImage.Visibility" Value="Collapsed" />
+                        <Setter Target="CityTextBlock.Visibility" Value="Collapsed" />
+                        <Setter Target="LastNameTextBlock.Width" Value="400" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="SmallVisualState" >
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="900"/>
+                    </VisualState.StateTriggers>
+
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>-->
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <Image Name="CustomerImage" Style="{StaticResource GeneralImageSmallStyle}" Source="{x:Bind CustomerTile.Image}" />
+
+        <Image Grid.Row="1"
+               Style="{StaticResource AttImageStyle}"
+               Source="{x:Bind CustomerTile.AttImage}"
+               HorizontalAlignment="Right"
+               VerticalAlignment="Bottom" />
+
+        <StackPanel Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+
+                <TextBlock Style="{StaticResource GeneralInformationTextBlockStyle}" 
+                           Text="{x:Bind CustomerTile.FirstName}" />
+
+                <TextBlock Name="LastNameTextBlock"
+                           Style="{StaticResource GeneralInformationTextBlockStyle}"
+                                                 Text="{x:Bind CustomerTile.LastName}" />
+            </StackPanel>
+            <TextBlock Name="CityTextBlock"
+                       Style="{StaticResource GeneralInformationTextBlockStyle}"
+                       Text="{x:Bind CustomerTile.City}" 
+                       HorizontalAlignment="Left" />
+        </StackPanel>
+    </Grid>
+</UserControl>

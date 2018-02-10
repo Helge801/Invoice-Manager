@@ -1,0 +1,111 @@
+﻿<UserControl
+    x:Class="Custom_Air_Files.UserControls.AddAddressUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Custom_Air_Files.UserControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Style="{StaticResource AddUserControlBodyStackPanelStyle}"
+                    Grid.ColumnSpan="2">
+            <TextBlock Style="{StaticResource AddUserControlHeaderStyle}"
+                           Text="Add Address"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Style="{StaticResource AddUserControlBodyStackPanelStyle}" Orientation="Horizontal">
+            <TextBlock Text="Name" Style="{StaticResource AddUserControlLableTextBlockStyle}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Style="{StaticResource AddUserControlBodyStackPanelStyle}" Orientation="Horizontal">
+            <TextBlock Text="Line 1" Style="{StaticResource AddUserControlLableTextBlockStyle}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Style="{StaticResource AddUserControlBodyStackPanelStyle}" Orientation="Horizontal">
+            <TextBlock Text="Line 2" Style="{StaticResource AddUserControlLableTextBlockStyle}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Style="{StaticResource AddUserControlBodyStackPanelStyle}" Orientation="Horizontal">
+            <TextBlock Text="City" Style="{StaticResource AddUserControlLableTextBlockStyle}"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" Style="{StaticResource AddUserControlBodyStackPanelStyle}">
+            <TextBox Name="NameTextBox" KeyUp="NameTextBox_KeyUp" MinWidth="125" Style="{StaticResource AddUserControlInputTextBoxStyle}"/>
+            <TextBlock Text="e.g. Home, Office, Rental on 3rd" 
+                               Style="{StaticResource AddUserControlLableTextBlockStyle}"
+                               Foreground="LightGray"
+                               FontSize="10"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal" Style="{StaticResource AddUserControlBodyStackPanelStyle}">
+            <TextBox Name="Line1TextBox" KeyUp="Line1TextBox_KeyUp"  MinWidth="200" Style="{StaticResource AddUserControlInputTextBoxStyle}"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal" Style="{StaticResource AddUserControlBodyStackPanelStyle}">
+            <TextBox Name="Line2TextBox" MinWidth="200" Style="{StaticResource AddUserControlInputTextBoxStyle}"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="4" Orientation="Horizontal" Style="{StaticResource AddUserControlBodyStackPanelStyle}">
+            <StackPanel Orientation="Horizontal">
+
+
+
+                <TextBox Name="CityTextBox"
+                             MinWidth="100"
+                             MaxLength="25"
+                         Style="{StaticResource AddUserControlInputTextBoxStyle}"
+                         KeyUp="CityTextBox_KeyUp"/>
+
+                <TextBlock Text="State" Style="{StaticResource AddUserControlLableTextBlockStyle}"/>
+
+                <TextBox Name="StateTextBox" KeyUp="StateTextBox_KeyUp" MaxLength="2" MinWidth="40" Style="{StaticResource AddUserControlInputTextBoxStyle}"/>
+
+                <TextBlock Text="Zip" Style="{StaticResource AddUserControlLableTextBlockStyle}"/>
+
+                <TextBox Name="ZipTextBox"
+                             MaxLength="5"
+                             InputScope="Number"
+                             TextChanging="ZipTextBox_TextChanging"
+                             MinWidth="75" Style="{StaticResource AddUserControlInputTextBoxStyle}" KeyUp="ZipTextBox_KeyUp"
+                         KeyDown="ZipTextBox_KeyDown"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="5" Grid.ColumnSpan="2" Style="{StaticResource AddUserControlBodyStackPanelStyle}">
+            <TextBox Name="NotesTextBox" Style="{StaticResource AddUserControlInputTextBoxStyle}" PlaceholderText="Notes" MaxLength="50" KeyDown="NotesTextBox_KeyDown"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Orientation="Horizontal" Background="White">
+
+            <Button Name="AddCircleButton"
+                        Style="{StaticResource CircleButtonTemplateStyle}"
+                        Click="AddCircleButton_Click">
+                <Grid>
+                    <Ellipse Style="{StaticResource CBAddEllipseStyle}"/>
+                    <TextBlock Style="{StaticResource CBAddTextBlockStyle}"/>
+                </Grid>
+            </Button>
+
+            <Button Name="CancelCircleButton"
+                        Style="{StaticResource CircleButtonTemplateStyle}"
+                        Click="CancelCircleButton_Click">
+                <Grid>
+                    <Ellipse Style="{StaticResource CBDeleteEllipseStyle}"/>
+                    <TextBlock Style="{StaticResource CBDeleteTextBlockStyle}"/>
+                </Grid>
+            </Button>
+
+        </StackPanel>
+    </Grid>
+</UserControl>
